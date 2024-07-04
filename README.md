@@ -84,26 +84,5 @@ POSTGRES_DB=mantenimiento_simple_dev
 docker compose up -d
 ```
 
-- Cuando la base de datos esté corriendo, ejecuta las migraciones del proyecto. Lo puedes hacer desde la terminal de VisualStudio
-
-```bash
-Update-Database
-```
-
-o con .NET SDK
-
-```bash
-dotnet ef database update
-```
-
-- Agrega las credenciales al appsettings.json o a los user-secrets de .NET SDK para que el proyecto pueda funcionar
-
-```bash
-dotnet user-secrets list
-### Output
-JWT:ValidIssuer = mantenimientosimple.api
-JWT:Secret = 8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc
-ConnectionStrings:DefaultConnection = Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password
-```
 
 - Después de este paso, inicia el servidor de desarrollo y el sistema estará listo para ser probado
