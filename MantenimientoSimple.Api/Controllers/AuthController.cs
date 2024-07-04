@@ -18,6 +18,24 @@ namespace MantenimientoSimple.Api.Controllers
             _userService = userService;
         }
 
+        [HttpPost("Register")]
+        public async Task<ActionResult> Register([FromBody] CreateUserRequest request)
+        {
+            // verificar si el usuario se encuentra registrado
+            var userExists = await _userService.GetByEmail(request.Email);
+            if (userExists != null) return StatusCode(StatusCodes.Status403Forbidden, (new ErrorResponse("Usuario ya registrado")));
+
+            // verificar si el rol existe
+            var roleExists = await _userService.GetRole(request.Role);
+            if (roleExists == null) return StatusCode(StatusCodes.Status400BadRequest, new ErrorResponse("Rol inválido"));
+
+            // crear el usuario
+            var success = await _userService.CreateUser(request);
+            if (!success) return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResponse("Error interno al crear usuario"));
+
+            return Ok("Usuario creado exitosamente");
+        }
+
         [HttpPost("Login")]
         public async Task<ActionResult> Login([FromBody] LoginRequest request)
         {
