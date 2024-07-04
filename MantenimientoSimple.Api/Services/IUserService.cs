@@ -13,6 +13,7 @@ namespace MantenimientoSimple.Api.Services
         Task<bool> UpdateUser(User user);
 
         Task<bool> DeleteUser(User user);
+        Task<List<string>> GetRolesForUser(User user);
 
         Task<bool> VerifyPassword(User user, string password);
 

@@ -135,7 +135,7 @@ namespace MantenimientoSimple.Api.Services
         {
             var claims = new List<Claim>()
             {
-                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 
@@ -151,7 +151,7 @@ namespace MantenimientoSimple.Api.Services
             var jwt = new JwtSecurityToken(
                 issuer: _configuration.GetSection("JWT:ValidIssuer").Value,
                 claims: claims,
-                expires: DateTime.Now.AddHours(2),
+                expires: DateTime.Now.AddHours(24),
                 signingCredentials: new SigningCredentials(key, SecurityAlgorithms.HmacSha256)
                 );
 
@@ -190,6 +190,12 @@ namespace MantenimientoSimple.Api.Services
         public Task<IdentityRole> GetRole(string roleName)
         {
             return _roleManager.FindByNameAsync(roleName);
+        }
+
+        public async Task<List<string>> GetRolesForUser(User user)
+        {
+           var result = await _userManager.GetRolesAsync(user);
+            return result.ToList();
         }
     }
 }
