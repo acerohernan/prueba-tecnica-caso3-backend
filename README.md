@@ -123,4 +123,38 @@ o con .NET SDK
 dotnet ef database update
 ```
 
-- Después de este paso, inicia el servidor de desarrollo y el sistema estará listo para ser probado
+- Inicia el servidor de desarrollo con VisualStudio
+
+![image](https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/2a310c25-d9b9-4d96-8a71-edb936cb259b)
+
+- Para crear el usuario admin que hará login, por el momento no hay UI para este registro, pero se pretende implementar en un futuro. Hasta que no esté esa vista, podemos crear el usuario admin de la siguiente forma:
+Nos vamos a la ruta de la documentación generado por Swagger
+
+https://localhost:7202/swagger/index.html
+
+En esa ruta encontraremos la primera ruta '/api/Auth/Register'
+![image](https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/494f951c-f158-4744-a2d9-4bf4cd13672a)
+
+Hacemos click y le damos a 'Try it out'
+![image](https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/22cd859d-122a-47a1-be9b-cb1ec84a2d3f)
+
+En el campo de texto pegamos los siguientes valores
+
+```json
+{
+  "username": "admindemo",
+  "email": "demo@demo.com",
+  "password": "@Password123",
+  "confirmPassword": "@Password123",
+  "role": "Admin"
+}
+```
+Y ejecutamos la petición. Nos debe de salir el siguiente mensaje:
+![image](https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/0fca4abc-f279-485e-b43d-1843a23ef287)
+
+- Luego de esto, ya podremos ingresar al frontend y hacer login con las credenciales creadas anteriormente
+
+Correo: demo@demo.com
+Contraseña: @Password123
+![image](https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/693e8f9e-4762-4a1b-809e-fea39a1c92fc)
+
