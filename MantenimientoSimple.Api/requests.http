@@ -1,0 +1,49 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+### Login
+
+POST https://localhost:7202/api/Auth/Login
+Content-Type: application/json
+
+{
+  "email": "hernan@example.com",
+  "password": "@Password123"
+}
+
+### Obtener todos los usuarios
+
+GET https://localhost:7202/api/Users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNlcm9oZXJuYW4iLCJqdGkiOiI5MjdlZTY5Yy1kOWI5LTQ1NmMtODQ1NC0yNzgyZDQ4ZjI3MmMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcyMDA3NjAzMCwiaXNzIjoibWFudGVuaW1pZW50b3NpbXBsZS5hcGkifQ.15FfzWCEJj1CCjt_Igqr-93Dg3nKfL6txsMrdvEfEhY
+
+### Crear usuario
+
+POST https://localhost:7202/api/Users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNlcm9oZXJuYW4iLCJqdGkiOiI5MjdlZTY5Yy1kOWI5LTQ1NmMtODQ1NC0yNzgyZDQ4ZjI3MmMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcyMDA3NjAzMCwiaXNzIjoibWFudGVuaW1pZW50b3NpbXBsZS5hcGkifQ.15FfzWCEJj1CCjt_Igqr-93Dg3nKfL6txsMrdvEfEhY
+
+{
+  "username": "acerohernan5",
+  "email": "hernan5@example.com",
+  "password": "@Password123",
+  "confirmPassword": "@Password123",
+  "role": "Editor"
+}
+
+### Editar usuario
+@id = 34b536f4-8165-49fc-916a-88b9972461fc
+
+PATCH https://localhost:7202/api/Users/{{id}}
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNlcm9oZXJuYW4iLCJqdGkiOiI5MjdlZTY5Yy1kOWI5LTQ1NmMtODQ1NC0yNzgyZDQ4ZjI3MmMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcyMDA3NjAzMCwiaXNzIjoibWFudGVuaW1pZW50b3NpbXBsZS5hcGkifQ.15FfzWCEJj1CCjt_Igqr-93Dg3nKfL6txsMrdvEfEhY
+
+{
+  "username": "acerohernansadsa",
+  "email": "hernanssa@example.com",
+  "rol": "Editor"
+} 
+
+### 
+@id = 34b536f4-8165-49fc-916a-88b9972461fc
+
+DELETE https://localhost:7202/api/Users/{{id}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWNlcm9oZXJuYW4iLCJqdGkiOiI5MjdlZTY5Yy1kOWI5LTQ1NmMtODQ1NC0yNzgyZDQ4ZjI3MmMiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcyMDA3NjAzMCwiaXNzIjoibWFudGVuaW1pZW50b3NpbXBsZS5hcGkifQ.15FfzWCEJj1CCjt_Igqr-93Dg3nKfL6txsMrdvEfEhY
