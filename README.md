@@ -18,9 +18,9 @@ Al finalizar debe entregarse:
 - Usuario/Password de prueba
 - Otra información necesaria para levantar el sistema
 
-### Video demo
+## Video Demo
 
-https://github.com/acerohernan/prueba-tecnica-caso3-backend/assets/73747878/8cfb908f-82f0-409a-9494-25ec548b07e2
+https://github.com/acerohernan/prueba-tecnica-caso3-frontend/assets/73747878/8a71d4c2-506c-4c30-ba6b-787403e5117a
 
 ## Guía para levantar el sistema completo (Frontend + Backend)
 
@@ -84,5 +84,43 @@ POSTGRES_DB=mantenimiento_simple_dev
 docker compose up -d
 ```
 
+- Agrega las siguientes credenciales al appsettings.json:
+
+```json
+"ConnectionStrings": {
+   "DefaultConnection": "Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password"
+ },
+ "JWT": {
+   "ValidIssuer": "mantenimientosimple.api",
+   "Secret": "8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc"
+ }
+```
+ o a los user-secrets de .NET SDK para que el proyecto pueda funcionar
+
+```bash
+dotnet user-secrets init
+
+dotnet user-secrets set "JWT:ValidIssuer" "mantenimientosimple.api"
+dotnet user-secrets set "JWT:Secret" "8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc"
+dotnet user-secrets set "ConnectionStrings:DefaultConnection" "Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password"
+
+dotnet user-secrets list
+### Output
+JWT:ValidIssuer = mantenimientosimple.api
+JWT:Secret = 8DNEHF3tW2nVybEZVCc1xwbNinRpX7Dc
+ConnectionStrings:DefaultConnection = Host=localhost;Database=mantenimiento_simple_dev;Username=mantenimiento_simple_dev_user;Password=password
+```
+
+- Cuando la base de datos esté corriendo, ejecuta las migraciones del proyecto. Lo puedes hacer desde la terminal de VisualStudio
+
+```bash
+Update-Database
+```
+
+o con .NET SDK
+
+```bash
+dotnet ef database update
+```
 
 - Después de este paso, inicia el servidor de desarrollo y el sistema estará listo para ser probado
