@@ -70,6 +70,14 @@ git clone https://github.com/acerohernan/prueba-tecnica-caso3-backend
 cd ./MantenimientoSimple.Api
 ```
 
+- Antes de iniciar el entorno de docker, crearemos un archivo '.env' con los siguientes datos:
+
+```bash
+POSTGRES_USER=mantenimiento_simple_dev_user
+POSTGRES_PASSWORD=password
+POSTGRES_DB=mantenimiento_simple_dev
+```
+
 - Inicia el entorno de Docker. Este levantará la base de datos Postgres con la que trabajará el backend.
 
 ```bash
